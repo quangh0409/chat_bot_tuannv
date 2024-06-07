@@ -1,0 +1,25 @@
+version: '3.8'  # Hoặc phiên bản docker-compose khác mà bạn muốn sử dụng
+
+services:
+  vnpt-chatbot:
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 8001:8001
+    image: vnpt-chatbot:latest
+    tty: true   # Tương đương với -t
+    stdin_open: true  # Tương đương với -i
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    # command: /bin/bash
+
+networks:
+  vnpt_chatbot_networks:
+    name: vnpt_chatbot_networks
+    driver: bridge

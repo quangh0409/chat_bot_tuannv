@@ -1,0 +1,22 @@
+milvus:
+  connection_args:
+    uri: https://in03-7f0182a96e77a1f.api.gcp-us-west1.zillizcloud.com
+    user: db_7f0182a96e77a1f
+    password: Op7]E[[hBZf9t9uB
+  collection_args:
+    collection_name: Promote_Embedding
+    vector_field: vector
+    primary_field: Auto_id
+    text_field: text
+    auto_id: True
+  search_params:
+    metric_type: COSINE
+    params:
+        radius: 0.5 # threshold
+        range_filter : 1
+
+mongodb:
+  connection_args:
+    uri: mongodb+srv://tuannv140301:D8T6ONE5Yxiqrvk6@cluster0.qsugxut.mongodb.net/
+  collection_args:
+    database_name: customer-service-chatbot
